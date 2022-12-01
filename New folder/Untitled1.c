@@ -1,10 +1,14 @@
 /// Problem:
 /*
-Update the following code such that it swaps the contents of two two variables. You can only write code inside the two comments. Do not modify anything else. The printf function is supposed to print ì13 and 5î. So basically the value must be swapped but you can not assign 13 directly to a and 5 directly to b. You can not use other numbers as well. But you can declare an extra variable if you need.
+Update the following code such that it swaps the contents of two two variables. 
+You can only write code inside the two comments. Do not modify anything else. 
+The printf function is supposed to print ‚Äú13 and 5‚Äù. So basically the value must be swapped but you can not assign 13 directly to a and 5 directly to b. 
+You can not use other numbers as well. But you can declare an extra variable if you need.
+
 int a=5, b=13;
 //Write code here
 //End of code
-printf(ì%d and %dî , a, b);
+printf(‚Äú%d and %d‚Äù , a, b);
 */
 
 /// Solution:
@@ -14,4 +18,4 @@ int temp = 5; // declared an extra variable
 a = 13;
 b = temp;
 
-printf(ì%d and %dî , a, b); // It will print ì13 and 5î
+printf(‚Äú%d and %d‚Äù , a, b); // It will print ‚Äú13 and 5‚Äù
