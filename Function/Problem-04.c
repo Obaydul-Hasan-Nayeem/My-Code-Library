@@ -17,7 +17,7 @@ The 1st one is 2, the 2nd one is 4 and so on.
 
 */
 
-// My Solution: [Has a wrong]
+// My Solution:
 #include<stdio.h>
 
 int count = 0, kth; // global variable
@@ -80,7 +80,7 @@ print_odd (int n, int k) {
 
 
 
-// Solution from Phitron:
+// Problem Setter's Solution:
 /*
 #include <stdio.h>
 
@@ -110,5 +110,4 @@ int main(){
 
   return 0;
 }
-
 */
