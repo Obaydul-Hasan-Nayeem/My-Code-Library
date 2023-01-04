@@ -16,49 +16,6 @@ struct Food input_foods() {
     return single_food;
 };
 
-void display_foods(struct Food f[], int sz) {
-   for (int i = 0; i < sz; i++) {
-    printf("\n__________________________\n\n");
-    printf("food name: %s\n", f[i].name);
-    printf("food price: %0.2lf\n", f[i].price);
-    printf("food tax: %0.2lf\n", f[i].tax);
-    printf("food code: %d\n", f[i].f_code);
-    printf("__________________________\n\n");
-   }
-}
-
-bool check_food_code(struct Food f[], int sz, int code) {
-    bool chk = false;
-    for (int i = 0; i < sz; i++) {
-        if (f[i].f_code == code) {
-            chk = true;
-            break;
-        }
-    }
-    return chk;
-}
-
-void display_ordered_food(struct Food f[], int sz, int ordered_food[], int order_size) {
-   double total_price = 0;
-   for (int i = 0; i < order_size; i++) {
-        int food_code = ordered_food[i];
-
-        struct Food food;
-
-        for (int k = 0; k <= sz; k++) {
-            if (f[k].f_code == food_code) {
-                food = f[k];
-            }
-        }
-
-        printf("food name = %s | food price = %0.2lf\n", food.name, food.price);
-
-        total_price += food.price;
-   }
-        printf("______________________________________\n");
-        printf("Total Price: %.2lf Tk.", total_price);
-}
-
 int main (void) {
     printf("koyta food niba: ");
     int n;
@@ -110,3 +67,4 @@ int main (void) {
 
     return 0;
 }
+
