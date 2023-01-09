@@ -11,7 +11,7 @@
 
 */
 
-
+// correct answer:
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,12 +26,12 @@ vector<int> merge_sort(vector<int> v) {
     vector<int> a;
     vector<int> b;
 
-    // dividing the array and inserting the 1st part into a
+    // dividing the array and inserting the 1st part into a vector
     for(int i = 0; i < mid; i++) {
         a.push_back(v[i]);
     }
 
-    // dividing the array and inserting the 2nd part into b
+    // dividing the array and inserting the 2nd part into b vector
     for(int i = mid; i < v.size(); i++) {
         b.push_back(v[i]);
     }
@@ -40,7 +40,7 @@ vector<int> merge_sort(vector<int> v) {
     vector<int> sorted_a = merge_sort(a);
     vector<int> sorted_b = merge_sort(b);
 
-    vector<int> sorted_v; to mergee the divided arrays
+    vector<int> sorted_v; //to mergee the divided arrays
     int idx1 = 0;
     int idx2 = 0;
 

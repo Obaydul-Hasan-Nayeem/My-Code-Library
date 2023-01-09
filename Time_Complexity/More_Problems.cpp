@@ -104,7 +104,7 @@ For example, builtin_popcount(5) = 2. Because, 5 = (101)2. So there are 2 set bi
            inner loop: n ~ 1
            So, O(n + 1) = O(n)
 
-        The outer for loop has a complexity of O(n) because it will execute n times. The inner for loop also has a complexity of O(n) because it will execute n times for each iteration of the outer loop. The function builtin_popcount has a time complexity of O(1) because it will execute a constant number of times. Therefore, the overall complexity is O(n * n) = O(n^2). However, since the inner loop will only execute for a small fraction of the total iterations of the outer loop (specifically, for the iterations where builtin_popcount(i) == 1), the overall time complexity can be considered O(n).
+      Details: The outer for loop has a complexity of O(n) because it will execute n times. The inner for loop also has a complexity of O(n) because it will execute n times for each iteration of the outer loop. The function builtin_popcount has a time complexity of O(1) because it will execute a constant number of times. Therefore, the overall complexity is O(n * n) = O(n^2). However, since the inner loop will only execute for a small fraction of the total iterations of the outer loop (specifically, for the iterations where builtin_popcount(i) == 1), the overall time complexity can be considered O(n).
 
 */
 -----------------------------------
