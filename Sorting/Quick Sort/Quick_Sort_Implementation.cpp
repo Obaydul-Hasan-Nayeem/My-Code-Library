@@ -13,6 +13,7 @@
     # Time Complexity:
         Worst Case: O(n^2)
         Best Case: O(nlogn)
+        Average Case: O(nlogn)
 
 
     # Discussion:
@@ -44,7 +45,9 @@ vector<int> quick_sort(vector<int>v) { // or: &v
         return v;
     }
 
-    int pivot = v.size() - 1;
+   // int pivot = v.size() - 1;
+    int pivot = rand() % v.size(); // for better time complexity: solution-1
+
     vector<int> a, b; // to divide
 
     // O(n): dividing the v vector and putting into a and b vector

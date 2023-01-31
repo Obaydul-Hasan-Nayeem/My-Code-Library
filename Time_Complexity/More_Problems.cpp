@@ -1,4 +1,49 @@
-----------------------------------
+-----------------------------------
+for(int i = 1; i <= n; i++) {
+    for(int j = 1; j <= n; j = j + i) {
+        cout << i << " " << j << " ";
+    }
+}
+
+/*
+   Time Complexity: O(nlogn)
+
+   Explanation:
+            n + n/2 + n/3 + ... + n/n
+        =   n(1 + 1/2 + 1/3 + ... + 1/n)
+        =   n log n [Harmonic Series]
+
+
+
+*/
+
+
+-----------------------------------
+// fibonacci series O(n^2)
+    int fib(int n) {
+        if(n <= 1) {
+            return n;
+        }
+        return fib(n-1) + fib(n+2);
+    }
+
+/*
+   Time Complexity: O(2^n)
+
+   Explanation:
+        fib(0) = 1 operation
+        fib(1) = 1
+        fib(2) = 3
+        fib(3) = 5
+        fib(4) = 9
+        fib(5) = 15
+        fib(6) = 25
+        fib(7) = 41
+    sob gulo motamoti digun porimane barteche. tai complexity = O(2^n)
+*/
+
+-----------------------------------
+
 int k=1;
 while(k<=n){ // logn
 	cout<<k<<endl;

@@ -23,11 +23,11 @@ int main() {
 
     bool ans = false;
 
-    int low = 1, high = n;
+    int left = 1, right = n;
 
-    while(low <= high) { // logn
+    while(left <= right) { // logn
 
-        int mid = (low + high) / 2;
+        int mid = (left + right) / 2;
 
         if (v[mid] == k) {
             cout << "\nThe Sorted Array: ";
@@ -39,11 +39,11 @@ int main() {
             break;
         }
         else if(k < v[mid]) {
-            high = mid - 1;
+            right = mid - 1;
         }
         else {
             // k > v[mid]
-            low = mid + 1;
+            left = mid + 1;
         }
     }
 

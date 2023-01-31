@@ -1,5 +1,5 @@
 /*
-Frequent Functions:
+Frequent Built in Functions:
     size() -> size of the vector
     push_back() -> add a value on the last index
     pop_back() -> remove the value of the last index
@@ -8,6 +8,27 @@ Frequent Functions:
     clear() -> clear / remove all the elements
     empty() -> return 1 if there is no element
     resize() -> to resize / redeclare / increase the size of the vector
+    reverse(v.begin(), v.end());
+
+  # sort()
+        increasing:
+            sort(v.begin(), v.end())
+
+        decreasing:
+            sort(v.rbegin(), v.rend())
+            or, sort(v.begin(), v.end(), greater<int>)
+
+        others:
+            sort(v.begin() + 1, v.end() + 3)
+               +1: 1 index theke shuru hobe
+               +3: 2 index projonto kaj korbe
+
+    # max / min element from the given length
+        *max_element(v.begin(), v.end());
+        *min_element(v.begin(), v.end());
+
+
+
 */
 
 #include <bits/stdc++.h>

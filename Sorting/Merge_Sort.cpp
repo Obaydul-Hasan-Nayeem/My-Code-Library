@@ -1,5 +1,5 @@
 /*
-- Merge Sort is a divide and conquer algorithm
+- Merge Sort is a divide and conquer algorithm.
 - It is the best algorithm as efficiency.
 - It uses recursion.
 - C++ sort function is built by merge sort.
@@ -11,7 +11,8 @@
 
 */
 
-// correct answer:
+
+
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -40,7 +41,7 @@ vector<int> merge_sort(vector<int> v) {
     vector<int> sorted_a = merge_sort(a);
     vector<int> sorted_b = merge_sort(b);
 
-    vector<int> sorted_v; //to mergee the divided arrays
+    vector<int> sorted_v; //to merge the divided arrays
     int idx1 = 0;
     int idx2 = 0;
 

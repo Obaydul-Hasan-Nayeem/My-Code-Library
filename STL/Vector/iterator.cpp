@@ -12,10 +12,15 @@ int main() {
     }
 
 //  vector<int>::iterator it;
-    auto it = v.begin();
+//    auto it = v.begin();
+//
+//    for(it = v.begin(); it != v.end(); it++) {
+//        cout << *it << " ";
+//    }
 
-    for(it = v.begin(); it != v.end(); it++) {
-        cout << *it << " ";
+// foreach
+    for(int val : v) {
+        cout << val << " ";
     }
 
 return 0;
