@@ -8,45 +8,34 @@ class Queue {
 public:
     int a[MAX_SIZE];
     int l, r;
-    int sz;
 
     Queue() {
         l = 0;
         r = -1;
-        sz = 0;
     }
 
     // Insert Element O(1)
     void enqueue(int val) {
-        if(sz == MAX_SIZE) {
-            cout << "Queue is full\n";
+        if(r+1 >= MAX_SIZE) {
+            cout << "Queue is full!\n";
             return;
         }
         r++;
-        if(r == MAX_SIZE) {
-            r = 0; // jokhon last index e chole jabe tokhon r k first index e niye ashte hobe.
-        }
-
         a[r] = val;
-        sz++;
     }
 
     // Delete Element O(1)
     void dequeue() {
-        if(sz == 0) {
+        if(l > r) {
             cout << "Queue is empty!\n";
             return;
         }
         l++;
-        if(l == MAX_SIZE) {
-            l = 0;
-        }
-        sz--;
     }
 
     // Return the front Element O(1)
     int front() {
-        if(sz == 0) {
+        if(l > r) {
             cout << "Queue is empty!\n";
             return -1;
         }
@@ -55,12 +44,11 @@ public:
 
     // Return the queue size O(1)
     int size() {
-        return sz;
+        return r-l+1;
     }
 };
 
 int main() {
-
     Queue q;
     q.enqueue(5);
     q.enqueue(6);
@@ -70,6 +58,7 @@ int main() {
     cout << "Front=" << q.front() << "\n";
 
     q.dequeue();
+    cout << "\n";
 
     cout << "Size=" << q.size() << "\n";
     cout << "Front=" << q.front() << "\n";

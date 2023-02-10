@@ -1,241 +1,120 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-
-
-class node
-{
+template<class T>
+class Queue {
 public:
-    int data;
-    node * nxt;
-    node * prv;
-};
-
-class DoublyLinkedList
-{
-public:
-    node *head;
-    node *tail;
+    T *a;
+    T array_cap;
+    T l, r;
     int sz;
-    DoublyLinkedList()
-    {
-        head = NULL;
+
+    Queue() {
+        a = new T[1];
+        array_cap = 1;
+        l = 0;
+        r = -1;
         sz = 0;
-        tail = NULL;
     }
 
-    //Creates a new node with the given data and returns it O(1)
-    node * CreateNewNode(int data)
-    {
-        node *newnode = new node;
-        newnode->data = data;
-        newnode->nxt = NULL;
-        newnode->prv = NULL;
-        return newnode;
+    void remove_circular() {
+        if(l > r) {
+            T *tmp = new T[array_cap];
+            T idx = 0;
+
+            for(int i = l; i <= array_cap; i++) {
+                tmp[idx] = a[i];
+                idx++;
+            }
+
+            for(int i = 0; i < r; i++) {
+                tmp[idx] = a[i];
+                idx++;
+            }
+            swap(tmp, a);
+            l = 0;
+            r = array_cap - 1;
+        }
     }
 
-    //Inserts a node with given data at head O(1)
-    void InsertAtHead(int data)
-    {
-        sz++;
-        node *newnode = CreateNewNode(data);
-        if(head == NULL)
-        {
-            head = newnode;
-            return;
+    // increase size
+    void increase_size() {
+        remove_circular();
+        T *tmp = new T[array_cap*2];
+        for(int i = 0; i < array_cap; i++) {
+            tmp[i] = a[i];
         }
-        node *a = head;
-        newnode->nxt = a;
-        a->prv = newnode;
-        head = newnode;
+        swap(a, tmp);
+        array_cap = array_cap * 2;
+        delete []tmp;
     }
 
-    //Inserts the given data at the given index O(n)
-    void Insert(int index, int data)
-    {
-        if(index > sz)
-        {
-            return;
+    // Insert Element O(1)
+    void enqueue(T val) {
+        if(sz == array_cap) {
+            increase_size();
         }
-        if(index==0)
-        {
-            InsertAtHead(data);
-            return;
+        r++;
+        if(r == array_cap) {
+            r = 0;
         }
-        node *a = head;
-        int cur_index = 0;
-        while(cur_index!= index-1)
-        {
-            a = a->nxt;
-            cur_index++;
-        }
-        // a = cur_index - 1
-        node *newnode = CreateNewNode(data);
-        newnode->nxt = a->nxt;
-        newnode->prv = a;
-        node *b = a->nxt;
-        b->prv = newnode;
-        a->nxt = newnode;
+
+        a[r] = val;
         sz++;
     }
 
-    //Deletes the given index O(n)
-    void Delete(int index)
-    {
-        if(index >= sz)
-        {
-            cout<<index<<" doesn't exist.\n";
+    // Delete Element O(1)
+    void dequeue() {
+        if(sz == 0) {
+            cout << "Queue is empty!\n";
             return;
         }
-        node *a = head;
-        int cur_index = 0;
-        while(cur_index != index)
-        {
-            a = a->nxt;
-            cur_index++;
-        }
-        node *b = a->prv;
-        node *c = a->nxt;
-        if(b!=NULL)
-        {
-            b->nxt = c;
-        }
-        if(c!= NULL)
-        {
-            c->prv = b;
-        }
-        delete a;
-        if(index==0)
-        {
-            head = c;
+        l++;
+        if(l == array_cap) {
+            l = 0;
         }
         sz--;
     }
 
-    //Prints the linked list O(n)
-    void Traverse()
-    {
-        node *a = head;
-        while(a!=NULL)
-        {
-            cout<<a->data<<" ";
-            a = a->nxt;
+    // Return the front Element O(1)
+    T front() {
+        if(sz == 0) {
+            cout << "Queue is empty!\n";
+            return -1;
         }
-        cout<<"\n";
+        return a[l];
     }
 
-    // Returns the size of linked list O(1)
-    int getSize()
-    {
+    // Return the queue size O(1)
+    int size() {
         return sz;
-    }
-
-    //Reverse the doubly linked list O(n)
-    void Reverse()
-    {
-        if(head==NULL)
-        {
-            return;
-        }
-        node *a = head;
-        int cur_index = 0;
-        while(cur_index != sz-1)
-        {
-            a = a->nxt;
-            cur_index++;
-        }
-        // last index is in a
-
-        node *b = head;
-        while(b!= NULL)
-        {
-            swap(b->nxt, b->prv);
-            b = b->prv;
-        }
-        head = a;
-    }
-
-    // swap the i-th index and j-th index
-    void SWAP(int i, int j)
-    {
-        node* a = head;
-        node* b = head;
-
-        if(i == j)
-        {
-            return;
-        }
-
-        int idx = 0;
-        while(a != NULL && idx != i)
-        {
-            a = a->nxt;
-            idx++;
-        }
-        idx = 0;
-        while(b != NULL && idx != j)
-        {
-            b = b->nxt;
-            idx++;
-        }
-
-        if(a == NULL && b == NULL)
-        {
-            return;
-        }
-
-        int temp = a->data;
-        a->data = b->data;
-        b->data = temp;
-    }
-
-    // delete all the nodes that have data=0
-    void deleteZero()
-    {
-        node* current = head;
-        while (current != NULL)
-        {
-            if (current->data == 0)
-            {
-                if (current == head)
-                {
-                    head = current->nxt;
-                    head->prv = NULL;
-                }
-                else if (current == tail)
-                {
-                    tail = current->prv;
-                    tail->nxt = NULL;
-                }
-                else
-                {
-                    current->prv->nxt = current->nxt;
-                    current->nxt->prv = current->prv;
-                }
-            }
-            current = current->nxt;
-        }
     }
 };
 
+// driver code
+int main() {
 
-int main()
-{
-    DoublyLinkedList dl;
-    dl.InsertAtHead(7);
-    dl.InsertAtHead(0);
-    dl.InsertAtHead(6);
-    dl.InsertAtHead(0);
-    dl.InsertAtHead(3);
+    Queue<int> q;
+    q.enqueue(5);
+    q.enqueue(6);
+    q.enqueue(7);
 
-    dl.Traverse();
+    cout << "Queue Size = " << q.size() << "\n";
+    cout << "Front Element = " << q.front() << "\n";
 
-    dl.SWAP(1, 4);
-    dl.Traverse();
+    cout << "\n";
 
-    dl.deleteZero();
-    dl.Traverse();
+    q.enqueue(8);
+    cout << "Queue Size [After Enqueued] = " << q.size() << "\n";
+    cout << "Front Element = " << q.front() << "\n";
 
-    return 0;
+    q.dequeue();
+    cout << "\n";
+
+    cout << "Queue Size [After Dequeued] = " << q.size() << "\n";
+    cout << "Front Element = " << q.front() << "\n";
+
+return 0;
 }
+
