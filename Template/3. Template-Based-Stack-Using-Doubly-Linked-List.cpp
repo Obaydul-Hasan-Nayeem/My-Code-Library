@@ -100,12 +100,18 @@ public:
 
 
 int main() {
-    DoublyLinkedList<char> dl;
-    dl.InsertAtHead('a');
-    dl.InsertAtHead('b');
-    dl.InsertAtHead('c');
 
-    dl.DeleteAtHead();
-    dl.DeleteAtHead();
+    Stack<double> dl;
+    dl.push(4.5);
+    dl.push(6.7);
+    dl.push(4.7);
+
+    cout << dl.top() << "\n";
+
+    dl.pop();
+    dl.pop();
+
+    cout << dl.top() << "\n";
+
 return 0;
 }
