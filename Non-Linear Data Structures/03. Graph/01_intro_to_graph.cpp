@@ -35,6 +35,17 @@ Graph Data Structure & Algorithm
             - direction thakbe
             - cycle thaka jabe na
 
+    <> Graph Representation:
+        > Types:
+            i. Adjacency Matrix
+            ii. Adjacency List
+            iii. Edge List
 
+        > Rules:  (adjacency matrix)
+         i node theke j node e direct connection thakle,
+            matrix[i][j] = 1 [for unweighted graph]
+            matrix[i][j] = weight of i,j [for weighted graph]
+
+        > Adjacency List is better than Adj. matrix as complexity (jodi graph ta sparse hoy).
 
 */

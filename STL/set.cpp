@@ -16,6 +16,13 @@
 
         [Above all, n = number of elements currently in the set]
 
+            > lower_bound, upper_bound
+                auto it = lower_bound(2);
+                cout << *it; // set er moddhe 2 ba 2 er kachakachi boro ta
+
+                auto it = upper_bound(2);
+                cout << *it; // set er moddhe 2 ba 2 er kachakachi choto ta
+
 */
 
 

@@ -1,7 +1,13 @@
 /*
-BFS: Breadth First Search
+BFS: Breadth First Search / Level Order Traversal
 
     > Traverse: level by level
+    > Targets:
+        - visit all nodes in a graph
+        - output the order that nodes are visited
+    > Steps:
+        - Select a node
+        - Explore all node (visit all adjacent nodes)
 
        [IMAGE on this folder]
 queue = {}

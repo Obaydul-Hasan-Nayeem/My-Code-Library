@@ -1,55 +1,25 @@
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-
-    int t;
-    cin >> t;
-
-    while(t--)
-    {
-        int n;
-        cin >> n;
-
-        string s = "";
-
-        for(int i = 1; i <= 2*n-2; i++)
-        {
-            string sub;
-            cin >> sub;
-
-            if (s.find(sub) != string::npos)
-            {
-                s = s;
-            }
-            else
-            {
-                if(sub[0] > s[0])
-                {
-                    s = s + sub;
-                }
-                else
-                {
-                    s = sub + s;
-                }
-            }
+bool is_palindrome(string s) {
+    int n = s.size();
+    int l = 0, r = n-1;
+    while(l < r) {
+        if(s[l] != s[r]) {
+            return false;
+            break;
         }
-
-        cout << s << "\n";
-
-        bool is_palindrome = equal(s.begin(), s.begin() + s.size()/2, s.rbegin());
-
-        if(is_palindrome)
-        {
-            cout << "YES\n";
-        }
-        else
-        {
-            cout << "NO\n";
-        }
+        l++;
+        r--;
     }
+}
+
+int main() {
+
+    string s;
+    cin >> s;
+
+    cout << is_palindrome(s);
 
     return 0;
 }

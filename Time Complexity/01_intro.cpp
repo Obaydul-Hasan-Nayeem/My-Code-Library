@@ -40,6 +40,14 @@
         So, (17 * 10^5) / 10^8
             = < 1 seconds
 --------------------------------------------------------------
+    Operators      |   Example |  Time Complexity
+    Assignment     | a = b     | O(1)
+    Arithmetic     | a + b     | O(1)
+    Boolean        | a ~ b     | O(1)
+    Loop
+    Function Call  | x = f(a)  | O(1)
+---------------------------------------------------------
 
+Efficiency: O(1) > O(log n) > O(n) > O(n^2) > O(2^n)
 
 */
