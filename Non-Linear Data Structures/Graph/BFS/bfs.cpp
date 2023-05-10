@@ -15,8 +15,6 @@ BFS: Breadth First Search / Level Order Traversal
 
     Pseudo Code of BFS
     ==================
-    Time Complexity: O(V+E)
-    Space Complexity: O(V)
 
     Input -> Connected Graph and a "source"
     Output -> Traverse all nodes and print the traversal order
@@ -31,6 +29,9 @@ BFS: Breadth First Search / Level Order Traversal
             - for all adjacent nodes of "head":
                 - if visited[adj_node] == 0:
                     - visited[adj_node] = 1 and q.push(adj_node)
+
+    Time Complexity: O(V+E)
+    Space Complexity: O(V)
 
 */
 

@@ -1,16 +1,33 @@
 /*
-    Basic Info:
+    > Basic Info:
         - it is a non linear ds
-        - STL: priority_queue<data type> pq;
+        - STL: priority_queue<data_type> pq;
                 pq.push(x);
                 pq.pop();
                 pq.top();
 
-    Operations:
+    > Operations:
         - push O(logn)
-        - pop O(logn)
+        - pop O(logn) -> shobcheye boro element ta ber hoye jabe
         - top O(n)
         - size
+        - front() -> shobcheye boro element ta return korbe
+
+
+    > Priority Queue te minimum value paowar upay:
+        Way-1: push korar somoy protita value k neg hishebe push korbo.
+            pop korar somoy protitar sathe abr minus gun kore dibo.
+        Way-2:
+            priority_queue<int, vector<int>, greater<int> > pq;
+
+    > pair thakle:
+        priority_queue< pair<int,int> > pq;
+
+        Example:
+            (10, 20), (20, 15), (10, 25), (10, 15), (5, 50)
+            Pop: (20, 15), (10, 25), (10, 20), (10, 15), (5, 50)
+            Rule: prothome 1st ta compare korbe and tateo same thakle pore 2nd ta comparison korbe.
+
 
 */
 

@@ -17,6 +17,10 @@
     Time Complexity: O(V+E)
     Space Complexity: O(V)
 
+    TYPES of NODES in DFS:
+    1. Unvisited Node
+    2. Paused Node
+    3. Done Node
 
 // PSEUDO CODE FOR TREE
 void dfs(int node) {
@@ -44,7 +48,6 @@ void dfs(int node) {
             dfs(adj_node)
 }
     dfs(src)
-
 
 */
 
