@@ -7,15 +7,15 @@
     n -> number of nodes in graph
     m -> number of edges in graph
 
-    Input -> A weighted graph & a src node (with no negative cycle. but neg edge thakte pare)
-    Output -> Shortest distance from src node to all other nodes.
-
     ---------------------------------
     We know,
         u ---> v
         d[u] + c(u,v) < d[v]
             => d[v] = d[u] + c(u,v)
     ----------------------------------
+
+    Input -> A weighted graph & a src node (with no negative cycle. but neg edge thakte pare)
+    Output -> Shortest distance from src node to all other nodes.
 
 
     - create a distance array "d" with all values to infinity  // T.C: O(n) // S.C: O(n)
