@@ -1,5 +1,6 @@
 /*
-    Problem Link: https://codeforces.com/problemset/problem/20/C/
+    Problem Link:
+    https://codeforces.com/problemset/problem/20/C/
 
     n -> 10^5
     m -> 10^5

@@ -17,10 +17,10 @@ int parent[N];
 
 int main() {
 
-    int n, m;
+    int n, m; // n -> number of nodes, m -> number of edges
     cin >> n >> m;
 
-    for(int i = 1; i <= n; i++) {
+    for(int i = 1; i <= n; i++) { // assigning all the distances by INF
         d[i] = INF;
     }
 
@@ -33,7 +33,7 @@ int main() {
     bool negative_cycle = false;
     int last_updated_node = -1;
 
-    for(int i = 1; i <= n-1; i++) {
+    for(int i = 1; i <= n; i++) {
         for(int node = 1; node <= n; node++) {
             for(pair<int,int> adj_node: adj_list[node]) {
                 int u = node;
@@ -53,6 +53,7 @@ int main() {
     }
 
     if(negative_cycle = true) {
+
         cout << "YES\n";
 
         int selected_node = last_updated_node;

@@ -55,6 +55,7 @@
         - selected_node = last_updated_node
         - for i = 1 to n-1: // T.C: O(n)
             - selected_node = parent[selected_node]
+        - first_node = selected_node
         - declare a vector "cycle"
         - cycle.push_back(selected_node)
         - while true: // T.C: O(n)
