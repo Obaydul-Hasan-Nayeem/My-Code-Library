@@ -16,6 +16,10 @@
 
     3. Define base case
             stone(1) = 0
+
+
+Time Complexity: O(n)
+Space Complexity: O(n)
 */
 
 
@@ -65,9 +69,22 @@ for(int i = 1; i <= n; i++) {
     cin >> h[i];
 }
 
-for(int i = 1; i <= n; i++) {
-    dp[i] = -1;
-}
+// 1. handle base case
+    dp[1] = 0;
+
+// 2. loop through the states
+    for(i = 2; i <= 2; i++) {
+        // 2.1 solve from smaller subproblems
+        int ans1 = dp[i-1] + abs(dp[i] - dp[i-1]);
+
+        if(i == 2) { // corner case
+            dp[i] == ans1;
+            continue;
+        }
+
+        int ans2 = dp[i-2] + abs(dp[i] - dp[i-2]);
+    }
+
 
 cout << stone(n) << "\n";
 
