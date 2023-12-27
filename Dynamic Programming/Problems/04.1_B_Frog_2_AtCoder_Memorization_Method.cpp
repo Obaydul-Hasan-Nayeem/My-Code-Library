@@ -42,6 +42,7 @@ const int INF = 2e9;
 
 int h[N];
 int dp[N];
+int n, k;
 
 int stone(int n) {
 
@@ -55,14 +56,26 @@ int stone(int n) {
             return dp[n];
         }
 
-    // 3.
+    // 3. calculate ans from smaller subproblems
+    int ans = INF;
+    for(int i = 1; i <= k; i++) {
 
+        // handle corner case
+        if(n-i <= 0) {
+            continue;
+        }
+
+        int candidate_ans = stone(n-i) + abs(h[n] - h[n-i]);
+        ans = min(ans, candidate_ans);
+    }
+
+    dp[n] = ans;
+    return ans;
 }
 
 int main() {
 
-    int n;
-    cin >> n;
+    cin >> n >> k;
 
     for(int i = 1; i <= n; i++) {
         cin >> h[i];

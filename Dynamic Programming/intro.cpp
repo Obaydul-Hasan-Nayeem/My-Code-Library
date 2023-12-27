@@ -33,6 +33,10 @@
         2. loop through the states
             2.1. and calculate the answer from smaller subproblems
 
+
+    OTHERS:
+        - DP te n er jonno kichu calculate korte hole dhorei nite hobe je (n-1) already solved. ai bepar ti k "Leap of Fail" bole.
+
 */
 
 
